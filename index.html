@@ -5,8 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="./assets/style.css" rel="stylesheet">
 </head>
 <body>
+    <div id="starting-page">
+        <h1>starting page</h1>
+        <button id="start">Start Quiz</button>
+    </div>
     
+    <div class="hide" id="quiz-page">
+        <h1>quiz</h1>
+            <div id="questions"></div>
+            <div id="choices">
+                <button class="answer-choice" id="A"></button>
+                <button class="answer-choice" id="B"></button>
+                <button class="answer-choice" id="C"></button>
+                <button class="answer-choice" id="D"></button>
+            </div>
+    </div>
+
+    <div class="hide" id="scores-page">
+        <h1>high score page</h1>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
