@@ -8,21 +8,25 @@
     <link href="./assets/style.css" rel="stylesheet">
 </head>
 <body>
-    <div id="starting-page">
+    <nav class="nav">
+        <a href="scores.html">View High Scores</a>
+        <h2 id="countdown">Timer</h2>
+    </nav>
+    <div class="start-page" id="starting-page">
         <h1>Coding Quiz Challenge</h1>
-        <h3>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect asnwers will penalize your score/time by ten seconds!</h>
+        <h3>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</h>
         <br>
         <button id="start">Start Quiz</button>
     </div>
     
     <div class="hide" id="quiz-page">
             <div id="questions"></div>
-            <ul id="choices">
-                <li><button class="answer-choice" id="A"></button></li>
-                <li><button class="answer-choice" id="B"></button></li>
-                <li><button class="answer-choice" id="C"></button></li>
-                <li><button class="answer-choice" id="D"></button></li>
-            </ul>
+            <div class="choices">
+                <button class="answer-choice" id="A"></button>
+                <button class="answer-choice" id="B"></button>
+                <button class="answer-choice" id="C"></button>
+                <button class="answer-choice" id="D"></button>
+            </div>
     </div>
 
     <div class="hide" id="scores-page">

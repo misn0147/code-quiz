@@ -2,6 +2,60 @@
     box-sizing: border-box;
 }
 
+.start-page h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.start-page h3 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
+}
+
+#start {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 3px;
+    background-color: skyblue;
+    border-radius: 10px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+}
+
+#questions {
+    display: flex;
+    justify-content: center;
+    align-items: column;
+}
+
+#questions p {
+    font-size: 30px;
+}
+
+
+.answer-choice {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 5px;
+    margin: 3px;
+    background-color: rgb(155, 219, 245);
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+
 .hide {
     display: none;
 };
+

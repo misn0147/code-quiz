@@ -2,7 +2,10 @@ var start = document.querySelector("#start");
 var startingPage = document.querySelector("#starting-page");
 var answer = document.querySelectorAll(".answer-choice");
 var quizPage = document.querySelector("#quiz-page");
+var scoresPage = document.querySelector("scores-page");
 var score = 0;
+var timeLeft = 75;
+var timerEl = document.querySelector("#countdown");
 var choiceA = document.querySelector("#A");
 var choiceB = document.querySelector("#B");
 var choiceC = document.querySelector("#C");
@@ -27,21 +30,21 @@ var questions = [
     choiceB: "booleans",
     choiceC: "alerts",
     choiceD: "numbers",
-    correct : "alerts"
+    correct : "C"
 },
     { q: "The condition in an if / else statement is enclosed with _______.", 
     choiceA: "parenthesis",
     choiceB: "curly brackets",
     choiceC: "quotes",
     choiceD: "square brackets",
-    correct : "parenthesis" 
+    correct : "A" 
 },
     { q: "String values must be enclosed within _______ when being assigned to variables", 
     choiceA: "commas",
     choiceB: "curly brackets",
     choiceC: "quotes",
     choiceD: "parenthesis",
-    correct : "quotes"
+    correct : "C"
 }
 ];
 var runningQuestion = 0;
@@ -55,11 +58,31 @@ function startQuiz () {
     renderQuestion();
 };
 
+function countdown() {
+    var timeInterval = setInteraval(function() {
+        if(timeLeft > 1) {
+            timerEl.textContent = "Time: " + timeLeft;
+            timeLeft--;
+        }
+        else if (timeLeft === 1) {
+            timerEl.textContent = "Time: " + timeLeft;
+            timeLeft--;
+        }
+        else {
+            timerEl.textContent = '';
+            clearInterval(timeInterval);
+            endQuiz();
+        }
+    },1000);
+}
+
+var finalScore = timeLeft;
+console.log("final score" + finalScore);
+
 start.onclick = startQuiz;
 
 
 function renderQuestion() {
-    //for (var i = 0; i < questions.length; i++)
     
     document.querySelector("#questions").innerHTML = "<p>" + testObj.q + "</p>";
         choiceA.innerHTML = testObj.choiceA;
@@ -77,16 +100,20 @@ function checkAnswer (e) {
     var userInput = e.target.id;
     if (userInput === testObj.correct) {
         console.log("correct!");
+        console.log(timeLeft)
     }
     else {
         console.log("wrong");
+        timeLeft = timeLeft - 10;
+        console.log(timeLeft);
     }
     runningQuestion++;
     testObj = questions[runningQuestion]
-    
-    //if runningQuestion is greater than last question end quiz
-    // if not, renderQuestion()
-    // else render score
     renderQuestion();
+}
+
+function endQuiz() {
+    quizPage.setAttribute("class", "hide");
+    scoresPage.removeAttribute("class", "hide");
 }
 
