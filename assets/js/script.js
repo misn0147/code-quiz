@@ -8,7 +8,9 @@ var timeLeft = 75;
 var timerEl = document.querySelector("#countdown");
 var submitButton = document.querySelector('#submit');
 var initialsInput = document.querySelector('#initials');
+var newWinner = document.querySelector('#initials').value;
 var number = document.querySelector('#number')
+var winnerSpan = document.querySelector('#current-winner');
 var choiceA = document.querySelector("#A");
 var choiceB = document.querySelector("#B");
 var choiceC = document.querySelector("#C");
@@ -69,7 +71,7 @@ function countdown() {
             timerEl.textContent = "Time: " + timeLeft;
             timeLeft--;
         }
-        else if(runningQuestion > 4) {
+        else if(runningQuestion >= 4) {
             clearInterval(timeInterval);
             console.log(timeLeft);
         }
@@ -87,8 +89,8 @@ var finalScore = '';
 
 start.onclick = startQuiz;
 
-
 function renderQuestion() {
+
     document.querySelector("#questions").innerHTML = "<p>" + testObj.q + "</p>";
         choiceA.innerHTML = testObj.choiceA;
         choiceB.innerHTML = testObj.choiceB;
@@ -119,11 +121,12 @@ function checkAnswer (e) {
     testObj = questions[runningQuestion]
     renderQuestion();
 
-    if (runningQuestion > 4) {
+    if (runningQuestion >= 4) {
         endQuiz();
         console.log("end");
         finalScore = timeLeft;
         console.log("final score is: " + finalScore);
+        document.querySelector('.score-number').innerHTML = finalScore;
     }
 }
 
@@ -133,35 +136,32 @@ function endQuiz() {
     timerEl.setAttribute("class", "hide");
 }
 
-
-// document.getElementById("number").innerHTML = finalScore;
-
-
-// function renderLastRegistered() {
-//     scoresPage.addAttribute("class", "hide");
-//     timerEl.setAttribute("class", "hide");
-//     var currentWinner = localStorage.getItem("initials, score");
-//   //TODO: if they are null, return early from this function
-//     if (email === null || password === null) {
-//       return;
-//     }
-//   //TODO otherwise set the text of 'userEmailSpan' and 'userPasswordSpan' to the corresponding values from local Storage
-//   userEmailSpan.textContent = initials, score;
-//   }
-
+function saveScore() {
+    var newWinner = document.querySelector('#initials').value;
+    localStorage.setItem("initials, score", newWinner + ", " + finalScore);
+}
 
 submitButton.addEventListener('click', function(event) {
     event.preventDefault();
     
     var newWinner = document.querySelector('#initials').value;
-    
+
     if (newWinner === '') {
-    window.prompt('error', 'Initials cannot be blank');
+    window.prompt('Error:', 'Initials cannot be blank');
     } else {
     
-    localStorage.setItem("initials, score", newWinner + ", " + finalScore);
-
-    // renderLastRegistered();
-    
+    saveScore();
     }
+    
+    
 });
+
+
+
+// function displayHighScores() {
+//     return (localStorage.getItem('initials, score'));
+// };
+//     console.log(displayHighScores());
+
+
+

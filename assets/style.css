@@ -1,8 +1,11 @@
 * {
     box-sizing: border-box;
+    background-color: rgb(226, 184, 147);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.start-page h1 {
+.start-page h1,
+.start-page p {
     display: flex;
     justify-content: center;
 }
@@ -26,6 +29,43 @@
     border-radius: 10px;
 }
 
+#start:hover {
+    background-color: rgba(100, 189, 224, 0.5);
+}
+
+#submit {
+    padding: 5px;
+    margin: 3px;
+    background-color: skyblue;
+    border-radius: 10px;
+}
+
+#submit:hover {
+    background-color: rgba(100, 189, 224, 0.5);
+}
+
+.score-page {
+    height: 200px;
+    width: 500px;
+    position: relative;
+    border: 3px solid green;
+    margin: 0;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    padding: 10px;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#back-btn,
+#clear-btn {
+    padding: 5px;
+    margin: 3px;
+    background-color: skyblue;
+    border-radius: 10px;
+}
+
 .nav {
     display: flex;
     justify-content: space-between;
@@ -42,11 +82,18 @@
     font-size: 30px;
 }
 
+.choices {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
 
 .answer-choice {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    width: fit-content;
     padding: 5px;
     margin: 3px;
     background-color: rgb(155, 219, 245);
@@ -54,6 +101,22 @@
     font-weight: bold;
 }
 
+.answer-choice:hover {
+    background-color: rgb(155, 219, 245, .5);
+}
+
+.score-link {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.final-score {
+    padding: 100px;
+}
+
+.input-box {
+    background-color: white;
+}
 
 .hide {
     display: none;

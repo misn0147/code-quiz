@@ -9,8 +9,8 @@
 </head>
 <body>
     <nav class="nav">
-        <a href="scores.html">View High Scores</a>
-        <h2 id="countdown" class= "hide">Timer</h2>
+        <a class= "score-link" href="scores.html">View High Scores</a>
+        <h2 id="countdown" class= "hide"></h2>
     </nav>
     <div class="start-page" id="starting-page">
         <h1>Coding Quiz Challenge</h1>
@@ -28,13 +28,13 @@
                 <button class="answer-choice" id="D"></button>
             </div>
     </div>
-    <div class="hide" id="score-input">
+    <div class="hide final-score" id="score-input">
         <h1>All done!</h1>
-        <h3>Your final score is: <span id= "score-number"></span></h3>
+        <h3>Your final score is: <span class= "score-number"></span></h3>
         <form method="POST">
             <div class="input-group">
             <label for="initials">Enter initials:</label>
-            <input
+            <input class="input-box"
                 type="text"
                 name="initials"
                 id= "initials"
