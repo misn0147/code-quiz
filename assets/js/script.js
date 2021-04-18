@@ -10,7 +10,8 @@ var submitButton = document.querySelector('#submit');
 var initialsInput = document.querySelector('#initials');
 var newWinner = document.querySelector('#initials').value;
 var number = document.querySelector('#number')
-var winnerSpan = document.querySelector('#current-winner');
+
+
 var choiceA = document.querySelector("#A");
 var choiceB = document.querySelector("#B");
 var choiceC = document.querySelector("#C");
@@ -81,7 +82,6 @@ function countdown() {
             endQuiz();
             console.log(timeLeft);
         }
-
     }, 1000);
 }
 
@@ -90,7 +90,6 @@ var finalScore = '';
 start.onclick = startQuiz;
 
 function renderQuestion() {
-
     document.querySelector("#questions").innerHTML = "<p>" + testObj.q + "</p>";
         choiceA.innerHTML = testObj.choiceA;
         choiceB.innerHTML = testObj.choiceB;
@@ -106,29 +105,32 @@ function renderQuestion() {
     console.log(runningQuestion);
 }
 
+
 function checkAnswer (e) {
     var userInput = e.target.id;
     if (userInput === testObj.correct) {
-        console.log("correct!");
+        document.querySelector('.right-wrong').innerHTML = "Correct!";
         console.log(timeLeft)
     }
     else {
-        console.log("wrong");
+        document.querySelector('.right-wrong').innerHTML = "Wrong!";
         timeLeft = timeLeft - 10;
         console.log(timeLeft);
     }
     runningQuestion++;
     testObj = questions[runningQuestion]
-    renderQuestion();
 
-    if (runningQuestion >= 4) {
+    if (runningQuestion >= questions.length) {
         endQuiz();
         console.log("end");
         finalScore = timeLeft;
         console.log("final score is: " + finalScore);
         document.querySelector('.score-number').innerHTML = finalScore;
     }
-}
+    else {
+    renderQuestion();
+    }
+};
 
 function endQuiz() {
     quizPage.setAttribute("class", "hide");
@@ -138,7 +140,7 @@ function endQuiz() {
 
 function saveScore() {
     var newWinner = document.querySelector('#initials').value;
-    localStorage.setItem("initials, score", newWinner + ", " + finalScore);
+    localStorage.setItem("initials, score", JSON.stringify(newWinner + ", " + finalScore));
 }
 
 submitButton.addEventListener('click', function(event) {
@@ -149,19 +151,16 @@ submitButton.addEventListener('click', function(event) {
     if (newWinner === '') {
     window.prompt('Error:', 'Initials cannot be blank');
     } else {
-    
     saveScore();
     }
-    
+
+    const tab = window.open('https://misn0147.github.io/code-quiz/scores.html')
     
 });
 
 
 
-// function displayHighScores() {
-//     return (localStorage.getItem('initials, score'));
-// };
-//     console.log(displayHighScores());
+
 
 
 

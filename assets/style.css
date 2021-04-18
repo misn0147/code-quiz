@@ -1,7 +1,11 @@
 * {
     box-sizing: border-box;
-    background-color: rgb(226, 184, 147);
+    background-color: rgb(241, 215, 190);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+hr {
+    border-width: 3px;
 }
 
 .start-page h1,
@@ -18,6 +22,12 @@
     margin-left: 200px;
     margin-right: 200px;
     text-align: center;
+}
+
+.right-wrong {
+    display: flex;
+    justify-content: center;
+    animation: ease-out 3s;
 }
 
 #start {
