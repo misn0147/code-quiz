@@ -153,10 +153,15 @@ submitButton.addEventListener('click', function(event) {
     } else {
     saveScore();
     }
-
-    const tab = window.open('https://misn0147.github.io/code-quiz/scores.html')
     
 });
+
+function displayWinner() {
+    var winnerDisplay = JSON.parse(localStorage.getItem("initials, score"));
+    console.log(winnerDisplay);
+    
+}
+displayWinner();
 
 
 
