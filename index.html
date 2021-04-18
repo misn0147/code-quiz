@@ -10,7 +10,7 @@
 <body>
     <nav class="nav">
         <a href="scores.html">View High Scores</a>
-        <h2 id="countdown">Timer</h2>
+        <h2 id="countdown" class= "hide">Timer</h2>
     </nav>
     <div class="start-page" id="starting-page">
         <h1>Coding Quiz Challenge</h1>
@@ -27,6 +27,21 @@
                 <button class="answer-choice" id="C"></button>
                 <button class="answer-choice" id="D"></button>
             </div>
+    </div>
+    <div class="hide" id="score-input">
+        <h1>All done!</h1>
+        <h3>Your final score is: <span id= "score-number"></span></h3>
+        <form method="POST">
+            <div class="input-group">
+            <label for="initials">Enter initials:</label>
+            <input
+                type="text"
+                name="initials"
+                id= "initials"
+                placeholder="initials"
+            />
+            <button id="submit">Submit</button>
+        </div>
     </div>
 
     <div class="hide" id="scores-page">
