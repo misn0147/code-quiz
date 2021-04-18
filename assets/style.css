@@ -110,8 +110,11 @@
     text-decoration: none;
 }
 
-.final-score {
-    padding: 100px;
+#score-input {
+    margin-top: 10px;
+    margin-left: 200px;
+    margin-right: 200px;
+    text-align: center;
 }
 
 .input-box {
